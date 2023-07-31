@@ -1,0 +1,32 @@
+/* Cart.css */
+
+/* Styles for the cart container */
+.cart {
+    display: flex;
+    align-items: center;
+    background-color: #2a462a;
+    color: white;
+    border-radius: 5px;
+    padding: 0 10px;
+  }
+  
+  /* Styles for the cart button */
+  .cart button {
+    background-color: #2a462a;
+    color: white;
+    border: none;
+    padding: 5px 5px;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-right: 5px;
+  }
+  
+  /* Styles for the cart item count */
+  .cart span {
+    font-size: 16px;
+  }
+
+  .badge {
+    background-color: #121f12;
+  }
+  
