@@ -1,32 +1,41 @@
 import { Fragment } from "react";
-import { Container, Row, Col, Button } from "react-bootstrap";
+import { Container, Row, Col } from "react-bootstrap";
+import AddtoCartButton from "./AddToCartButton";
 
 const albumProductArray = [
   {
+    id: "1",
     title: "Album 1",
-    price: "$12.99",
+    price: "12.99",
     imageUrl: "https://prasadyash2411.github.io/ecom-website/img/Album%201.png",
+    quantity:1
   },
   {
+    id: "2",
     title: "Album 2",
-    price: "$14.99",
+    price: "14.99",
     imageUrl: "https://prasadyash2411.github.io/ecom-website/img/Album%202.png",
+    quantity:1
   },
   {
+    id: "3",
     title: "Album 3",
-    price: "$16.99",
+    price: "16.99",
     imageUrl: "https://prasadyash2411.github.io/ecom-website/img/Album%203.png",
+    quantity:1
   },
   {
+    id: "4",
     title: "Album 4",
-    price: "$9.99",
+    price: "9.99",
     imageUrl: "https://prasadyash2411.github.io/ecom-website/img/Album%204.png",
+    quantity:1
   },
 ];
 const Products = (props) => {
   const productList = albumProductArray.map((product) => {
     return (
-      <Col className="col-6 d-flex justify-content-between align-items-center">
+      <Col key={product.id} className="col-6 d-flex justify-content-between align-items-center">
         <div className="mt-4">
           <h3>{product.title}</h3>
           <div className="p-4">
@@ -38,8 +47,8 @@ const Products = (props) => {
             />
           </div>
           <div className="d-flex justify-content-between m-3">
-            <p className="text-right">{product.price}</p>
-            <Button className="text-left btn-sm">Add to Cart</Button>
+            <p className="text-right">${product.price}</p>
+            <AddtoCartButton item={product} />
           </div>
         </div>
       </Col>
@@ -47,11 +56,10 @@ const Products = (props) => {
   });
   return (
     <Fragment>
-        <h2 className="text-center">Music</h2>
+      <h2 className="text-center">Music</h2>
       <Container className="mx-auto">
         <Row className="text-center">{productList}</Row>
       </Container>
-  
     </Fragment>
   );
 };

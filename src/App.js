@@ -1,4 +1,4 @@
-import { Fragment, useState } from "react";
+import { useState } from "react";
 import Navbar from "react-bootstrap/Navbar";
 import Nav from "react-bootstrap/Nav";
 import Container from "react-bootstrap/Container";
@@ -8,6 +8,7 @@ import "./App.css";
 import Products from "./components/Products";
 import Button from "react-bootstrap/Button";
 import CartButton from "./components/CartButton";
+import CartProvider from "./store/CartProvider";
 const App = () => {
   const [showCart, setShowCart] = useState(false);
 
@@ -21,7 +22,7 @@ const App = () => {
 
 
   return (
-    <Fragment>
+    <CartProvider>
       <Navbar bg="dark" data-bs-theme="dark">
         <Container>
           <Nav className="mx-auto">
@@ -66,7 +67,7 @@ const App = () => {
           </div>
         </div>
       </footer>
-    </Fragment>
+    </CartProvider>
   );
 };
 
