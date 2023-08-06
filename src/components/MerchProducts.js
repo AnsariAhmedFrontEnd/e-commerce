@@ -18,10 +18,10 @@ const albumProductArray = [
     quantity:1,
   },
 ];
-const Products = (props) => {
+const MerchProdcuts = (props) => {
   const productList = albumProductArray.map((product) => {
     return (
-      <Col className="col-6 d-flex justify-content-between align-items-center">
+      <Col key={product.id} className="col-6 d-flex justify-content-between align-items-center">
         <div className="mt-4">
           <h3>{product.title}</h3>
           <div className="p-4">
@@ -50,4 +50,4 @@ const Products = (props) => {
   );
 };
 
-export default Products;
+export default MerchProdcuts;

@@ -24,8 +24,6 @@ const CartProvider = (props) => {
     setCartArray(updatedCartArray);
   };
 
-  console.log(cartArray)
-
   const cartContext = {
     items: cartArray,
     addItems: addToCartHandler,
