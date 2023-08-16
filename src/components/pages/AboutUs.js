@@ -5,7 +5,20 @@ const AboutUs = (props) => {
   return (
     <Container fluid>
       <Row>
-        <Col xs={{ order: 2, span: 6 }}>
+        <Col className="d-flex justify-content-center mt-4">
+          <h2>About</h2>
+        </Col>
+      </Row>
+      <Row className="d-flex justify-content-center">
+        <Col className="d-flex justify-content-center align-items-center col-3">
+          <img
+            src="https://prasadyash2411.github.io/ecom-website/img/Band%20Members.png"
+            alt="Band Members"
+            className="rounded-circle"
+            style={{ maxWidth: "200px", maxHeight: "200px", margin: "0 auto" }}
+          />
+        </Col>
+        <Col className="m-4 col-6">
           <p>
             Lorem ipsum carrots enhanced rebates. Excellent sayings of a man of
             sorrows, hates no prosecutors will unfold in the enduring of which
@@ -29,17 +42,6 @@ const AboutUs = (props) => {
             often not at once take the hardships of the life of harsh condemn,
             we are accusing him? Him whom something large cisterns.
           </p>
-        </Col>
-        <Col
-          xs={{ order: 1, span: 6 }}
-          className="d-flex justify-content-center align-items-center"
-        >
-          <img
-            src="https://prasadyash2411.github.io/ecom-website/img/Band%20Members.png"
-            alt="Band Members"
-            className="rounded-circle"
-            style={{ maxWidth: "200px", maxHeight: "200px", margin: "0 auto" }}
-          />
         </Col>
       </Row>
     </Container>

@@ -1,6 +1,6 @@
 import React from "react";
 import ReactDOM from "react-dom";
-import { Fragment, useContext } from "react";
+import { useContext } from "react";
 import { Container, Row, Col, Image, Button } from "react-bootstrap";
 import CartContext from "../store/cart-context";
 
@@ -47,20 +47,24 @@ const Cart = (props) => {
   ));
 
   return (
-    <Fragment>
       <Container
-        className="w-50 border border-danger border-2"
+        className="border border-danger border-2 me-4"
         style={{
           position: "absolute",
           zIndex: 30,
           backgroundColor: "#fff",
           right: 0,
           top: 200,
+          width: '45%'
         }}
       >
-        <Button variant="danger" onClick={props.onClose} className="mt-4 align-item-end">
+        <Row className="align-items-center">
+          <Col className="d-flex justify-content-end">
+        <Button variant="danger" onClick={props.onClose} className="mt-2">
           X
         </Button>
+        </Col>
+        </Row>
         <h2 className="text-center">Cart</h2>
         <Row className="font-weight-bold">
           <Col xs={12} md={3}>
@@ -74,8 +78,10 @@ const Cart = (props) => {
           </Col>
         </Row>
         {cartItemsList}
-        <Row className="align-items-end">
+        <Row className="align-items-center mt-4">
+          <Col className="d-flex justify-content-end">
           <h3 className="">Total ${totalAmount}</h3>
+          </Col>
         </Row>
         <Button
           variant="success"
@@ -83,7 +89,6 @@ const Cart = (props) => {
           Purchase
         </Button>
       </Container>
-    </Fragment>
   );
 };
 

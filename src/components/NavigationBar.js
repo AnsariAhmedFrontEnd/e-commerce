@@ -2,7 +2,7 @@ import { Fragment, useState } from "react";
 import { Navbar, Container, Nav } from "react-bootstrap";
 import CartButton from "../components/CartButton";
 import Cart from "../components/Cart";
-import { Link } from "react-router-dom";
+import { NavLink} from "react-router-dom";
 
 const NavigationBar = (props) => {
   const [showCart, setShowCart] = useState(false);
@@ -20,15 +20,15 @@ const NavigationBar = (props) => {
       <Navbar bg="dark" data-bs-theme="dark">
         <Container>
           <Nav className="mx-auto">
-            <Nav.Link as={Link} to="/home" className="mx-5 text-decoration-none fs-5">
-              Home
-            </Nav.Link>
-            <Nav.Link as={Link} to="/" className="mx-5 text-decoration-none fs-5">
+            <NavLink to="/home" className="mx-5 text-decoration-none fs-5 link">
+                Home
+            </NavLink>
+            <NavLink to="/"  className="mx-5 text-decoration-none fs-5 link">
               Store
-            </Nav.Link>
-            <Nav.Link as={Link} to="/about" className="mx-5 text-decoration-none fs-5">
+            </NavLink>
+            <NavLink to="/about" className="mx-5 text-decoration-none fs-5 link">
               About
-            </Nav.Link>
+            </NavLink>
           </Nav>
           <CartButton onCartButtonClick={showCartHandler} />
         </Container>

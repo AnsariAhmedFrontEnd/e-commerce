@@ -1,52 +1,46 @@
-import { Fragment } from "react";
-import { Container, Row, Col} from "react-bootstrap";
+import { Container, Row, Col, Card } from "react-bootstrap";
 import AddtoCartButton from "./AddToCartButton";
 
 const albumProductArray = [
   {
-    id:'5',
+    id: "5",
     title: "T-shirt",
     price: "49",
     imageUrl: "https://prasadyash2411.github.io/ecom-website/img/Shirt.png",
-    quantity:1
+    quantity: 1,
   },
   {
-    id:'6',
+    id: "6",
     title: "Coffe Cup",
     price: "14.99",
     imageUrl: "https://prasadyash2411.github.io/ecom-website/img/Cofee.png",
-    quantity:1,
+    quantity: 1,
   },
 ];
 const MerchProdcuts = (props) => {
   const productList = albumProductArray.map((product) => {
     return (
-      <Col key={product.id} className="col-6 d-flex justify-content-between align-items-center">
-        <div className="mt-4">
-          <h3>{product.title}</h3>
-          <div className="p-4">
-            <img
-              src={product.imageUrl}
-              width="200px"
-              height="200px"
-              alt={product.title}
-            />
+      <Col
+        key={product.id}
+        className="col-6 d-flex justify-content-center align-items-center mt-4 border-none"
+      >
+        <Card className="d-flex justify-content-center w-50 border-light">
+          <h3 className="pb-4">{product.title}</h3>
+          <img src={product.imageUrl} alt={product.title} />
+          <div className="d-flex justify-content-between align-items-center m-2 pt-2 pb-2">
+            <p className="text-right mt-2">${product.price}</p>
+            <AddtoCartButton item={product} />
           </div>
-          <div className="d-flex justify-content-between m-3">
-            <p className="text-right">${product.price}</p>
-          <AddtoCartButton item={product} />
-          </div>
-        </div>
+        </Card>
       </Col>
     );
   });
   return (
-    <Fragment>
-      <h2 className="text-center">Merch</h2>
+      
       <Container className="mx-auto">
+        <h2 className="text-center">Merch</h2>
         <Row className="text-center">{productList}</Row>
       </Container>
-    </Fragment>
   );
 };
 

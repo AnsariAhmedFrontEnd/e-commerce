@@ -11,3 +11,14 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+.link {
+  color: white;
+  /* Add any other link styles you want */
+}
+
+.active-link {
+  font-weight: bold;
+  color: black; /* Highlight the active link */
+  /* Add other styles for the active link */
+}
