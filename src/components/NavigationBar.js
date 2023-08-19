@@ -3,6 +3,7 @@ import { Navbar, Container, Nav } from "react-bootstrap";
 import CartButton from "../components/CartButton";
 import Cart from "../components/Cart";
 import { NavLink} from "react-router-dom";
+import './NavigationBar.css';
 
 const NavigationBar = (props) => {
   const [showCart, setShowCart] = useState(false);
@@ -20,7 +21,7 @@ const NavigationBar = (props) => {
       <Navbar bg="dark" data-bs-theme="dark">
         <Container>
           <Nav className="mx-auto">
-            <NavLink to="/home" className="mx-5 text-decoration-none fs-5 link">
+            <NavLink to="/home"  className="mx-5 text-decoration-none fs-5 link">
                 Home
             </NavLink>
             <NavLink to="/"  className="mx-5 text-decoration-none fs-5 link">
@@ -28,6 +29,9 @@ const NavigationBar = (props) => {
             </NavLink>
             <NavLink to="/about" className="mx-5 text-decoration-none fs-5 link">
               About
+            </NavLink>
+            <NavLink to="/contact" className="mx-5 text-decoration-none fs-5 link">
+              Contact Us
             </NavLink>
           </Nav>
           <CartButton onCartButtonClick={showCartHandler} />

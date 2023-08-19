@@ -1,5 +1,6 @@
 import { Container, Row, Col, Card } from "react-bootstrap";
 import AddtoCartButton from "./AddToCartButton";
+import { Link } from "react-router-dom";
 
 const albumProductArray = [
   {
@@ -26,7 +27,9 @@ const MerchProdcuts = (props) => {
       >
         <Card className="d-flex justify-content-center w-50 border-light">
           <h3 className="pb-4">{product.title}</h3>
-          <img src={product.imageUrl} alt={product.title} />
+          <Link to={`/products/${product.id}`}>
+          <img src={product.imageUrl} alt={product.title} style={{width:'90%'}} />
+          </Link>
           <div className="d-flex justify-content-between align-items-center m-2 pt-2 pb-2">
             <p className="text-right mt-2">${product.price}</p>
             <AddtoCartButton item={product} />

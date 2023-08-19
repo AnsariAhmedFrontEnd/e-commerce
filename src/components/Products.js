@@ -1,4 +1,5 @@
 import { Container, Row, Col, Card } from "react-bootstrap";
+import { Link } from "react-router-dom";
 import AddtoCartButton from "./AddToCartButton";
 
 const albumProductArray = [
@@ -34,17 +35,19 @@ const albumProductArray = [
 const Products = (props) => {
   const productList = albumProductArray.map((product) => {
     return (
-      <Col key={product.id} className="col-6 d-flex justify-content-center align-items-center mt-4 border-none">
+      <Col
+        key={product.id}
+        className="col-6 d-flex justify-content-center align-items-center mt-4 border-none"
+      >
         <Card className="d-flex justify-content-center w-50 border-light">
-        <h3 className="pb-4">{product.title}</h3>
-        <img
-          src={product.imageUrl}
-          alt={product.title}
-        />
-        <div className="d-flex justify-content-between align-items-center m-2 pt-2 pb-2">
-        <p className="text-right mt-2">${product.price}</p>
-        <AddtoCartButton item={product} />
-        </div>
+          <h3 className="pb-4">{product.title}</h3>
+          <Link to={`/products/${product.id}`}>
+            <img src={product.imageUrl} alt={product.title} style={{width:'90%'}} />
+          </Link>
+          <div className="d-flex justify-content-between align-items-center m-2 pt-2 pb-2">
+            <p className="text-right mt-2">${product.price}</p>
+            <AddtoCartButton item={product} />
+          </div>
         </Card>
       </Col>
     );
@@ -52,7 +55,9 @@ const Products = (props) => {
   return (
     <Container>
       <h2 className="text-center">Music</h2>
-      <Row className="text-center">{productList}</Row>
+      <ul>
+        <Row className="text-center">{productList}</Row>
+      </ul>
     </Container>
   );
 };

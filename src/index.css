@@ -13,12 +13,10 @@ code {
 }
 
 .link {
-  color: white;
+  color: rgb(156, 154, 154);
   /* Add any other link styles you want */
 }
 
-.active-link {
-  font-weight: bold;
-  color: black; /* Highlight the active link */
-  /* Add other styles for the active link */
+li {
+  list-style: none;
 }
