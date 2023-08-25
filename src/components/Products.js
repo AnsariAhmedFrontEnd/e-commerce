@@ -41,7 +41,7 @@ const Products = (props) => {
       >
         <Card className="d-flex justify-content-center w-50 border-light">
           <h3 className="pb-4">{product.title}</h3>
-          <Link to={`/products/${product.id}`}>
+          <Link to={`/store/${product.id}`}>
             <img src={product.imageUrl} alt={product.title} style={{width:'90%'}} />
           </Link>
           <div className="d-flex justify-content-between align-items-center m-2 pt-2 pb-2">

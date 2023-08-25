@@ -5,9 +5,11 @@ import App from "./App";
 import { BrowserRouter } from "react-router-dom";
 import "bootstrap/dist/css/bootstrap.min.css";
 import CartProvider from './store/CartProvider';
+import AuthProvider from "./store/AuthProvider";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
+  <AuthProvider>
   <CartProvider>
   <BrowserRouter>
     <React.StrictMode>
@@ -15,4 +17,5 @@ root.render(
     </React.StrictMode>
   </BrowserRouter>
   </CartProvider>
+  </AuthProvider>
 );
