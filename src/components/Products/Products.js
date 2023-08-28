@@ -1,6 +1,8 @@
 import { Container, Row, Col, Card } from "react-bootstrap";
 import { Link } from "react-router-dom";
-import AddtoCartButton from "./AddToCartButton";
+import AddtoCartButton from "../Cart/AddToCartButton";
+import { useContext } from "react";
+import CartContext from "../../store/cart-context";
 
 const albumProductArray = [
   {
@@ -33,7 +35,9 @@ const albumProductArray = [
   },
 ];
 const Products = (props) => {
+ const cartCtx= useContext(CartContext);
   const productList = albumProductArray.map((product) => {
+    const itemInCart = cartCtx.items.find((item) => item.id === product.id);
     return (
       <Col
         key={product.id}
@@ -46,7 +50,7 @@ const Products = (props) => {
           </Link>
           <div className="d-flex justify-content-between align-items-center m-2 pt-2 pb-2">
             <p className="text-right mt-2">${product.price}</p>
-            <AddtoCartButton item={product} />
+            <AddtoCartButton item={product} isInCart={itemInCart !== undefined} />
           </div>
         </Card>
       </Col>

@@ -39,7 +39,7 @@ const Login = (props) => {
         );
             if(response.ok) {
               const data = await response.json();
-        authCtx.login(data.idToken);
+        authCtx.login(data.idToken, enteredEmail);
         navigate("/store");
             }else{
               const data = await response.json();
@@ -64,7 +64,7 @@ const Login = (props) => {
 
         if(response.ok) {
           const data = await response.json();
-    authCtx.login(data.idToken);
+    authCtx.login(data.idToken, enteredEmail);
     navigate("/store");
         }else{
           const data = await response.json();

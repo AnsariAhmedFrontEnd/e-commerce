@@ -1,15 +1,10 @@
 import { useContext } from "react";
 import "./Cart.css";
-import CartContext from "../store/cart-context";
+import CartContext from '../../store/cart-context';
 const CartButton = (props) => {
   const cartCtx = useContext(CartContext);
 
-  const numberOfCartItems = cartCtx.items.reduce(
-    (accumulator, currentItems) => {
-      return accumulator + currentItems.quantity;
-    },
-    0
-  );
+  const numberOfCartItems = cartCtx.items.length;
   return (
     <div className="cart">
       <span>

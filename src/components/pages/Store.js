@@ -1,5 +1,5 @@
-import MerchProdcuts from "../MerchProducts";
-import Products from "../Products";
+import MerchProdcuts from "../Products/MerchProducts";
+import Products from "../Products/Products";
 import { Button, Card, Col, Container, Row } from "react-bootstrap";
 const Store = (props) => {
   return (
