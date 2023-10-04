@@ -9,7 +9,7 @@ const Store = (props) => {
         <MerchProdcuts />
         <Row className="text-center mb-4">
           <Col>
-            <Button>See the Cart</Button>
+            <Button variant="dark">See the Cart</Button>
           </Col>
         </Row>
       </Card>

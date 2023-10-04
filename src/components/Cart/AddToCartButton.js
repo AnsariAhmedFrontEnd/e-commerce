@@ -17,7 +17,7 @@ const AddtoCartButton = (props) => {
   };
 
   return (
-    <Button className="text-left btn-sm" onClick={addToCartHandler}>
+    <Button className="text-left btn-sm" variant="dark" onClick={addToCartHandler}>
       {props.isInCart || veiwCart ? "View Cart" : "Add To Cart"}
     </Button>
     

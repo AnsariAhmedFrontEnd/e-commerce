@@ -4,11 +4,14 @@ import { Container, Row, Col, Image, Button } from "react-bootstrap";
 import CartContext from "../../store/cart-context";
 
 const Cart = (props) => {
+
   const cartCtx = useContext(CartContext);
+
   const removeItemFromCartHandler = (itemId) => {
     cartCtx.removeItem(itemId);
   };
 
+ 
   const totalAmount = cartCtx.items.reduce((accumulator, currentItems) => {
     return (
       accumulator + Number(currentItems.quantity) * Number(currentItems.price)

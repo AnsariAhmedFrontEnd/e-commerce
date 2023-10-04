@@ -6,12 +6,13 @@ const CartProvider = (props) => {
   const [cartArray, setCartArray] = useState([]);
   const [cartVisible, setCartVisible] = useState(false);
   const authCtx = useContext(AuthContext);
-  const url = 'https://crudcrud.com/api/235767e9b8eb471ab971d0b9768a66d1';
+  const url = "https://e-commerce-93448-default-rtdb.firebaseio.com/";
+  console.log(cartArray)
 
-  //Cart Visibility Function 
+  //Cart Visibility Function
 
   const toggleCartVisibility = () => {
-    setCartVisible((prevStat) => !prevStat)
+    setCartVisible((prevStat) => !prevStat);
   };
 
   //Helper function for GET request..
@@ -20,68 +21,57 @@ const CartProvider = (props) => {
     const userEmail = authCtx.email;
     const cleanedEmail = userEmail.replace(/[.@]/g, "");
 
-    const response = await fetch(
-      `${url}/${cleanedEmail}`
-    );
+    const response = await fetch(`${url}/${cleanedEmail}.json`);
 
     const data = await response.json();
-    setCartArray(data);
+    setCartArray((prevCartArray) => [...prevCartArray, data]);
   }, [authCtx.email]);
 
   //Add to Cart Function
 
   const addToCartHandler = async (item) => {
-
-
     const userEmail = authCtx.email;
     const cleanedEmail = userEmail.replace(/[.@]/g, "");
 
-    try{ 
-      await fetch(
-      `${url}/${cleanedEmail}`,
-      {
+    try {
+      await fetch(`${url}/${cleanedEmail}.json`, {
         method: "POST",
         body: JSON.stringify(item),
         headers: {
           "Content-Type": "application/json",
         },
-      }
-    );
+      });
 
-    fetchData(() => {});
-  }catch (error) {
-    console.log('Error adding item to cart', error);
-  }
-
-   
+      fetchData(() => {});
+    } catch (error) {
+      console.log("Error adding item to cart", error);
+    }
   };
 
   const removeItemHandler = async (id) => {
     const userEmail = authCtx.email;
     const cleanedEmail = userEmail.replace(/[.@]/g, "");
-   try {
-    await fetch(`${url}/${cleanedEmail}/${id}`,{
-      method:'DELETE'
-    });
+    try {
+      await fetch(`${url}/${cleanedEmail}/${id}`, {
+        method: "DELETE",
+      });
 
-    await fetchData();
-   } catch (error) {
-    console.log(error);
-    
-   }
+      await fetchData();
+    } catch (error) {
+      console.log(error);
+    }
   };
 
   useEffect(() => {
     fetchData();
   }, [authCtx.email, fetchData]);
 
-
   const cartContext = {
     items: cartArray,
     addItems: addToCartHandler,
     removeItem: removeItemHandler,
-    cartVisibility:cartVisible,
-    toggleCartVisibility:toggleCartVisibility
+    cartVisibility: cartVisible,
+    toggleCartVisibility: toggleCartVisibility,
   };
 
   return (

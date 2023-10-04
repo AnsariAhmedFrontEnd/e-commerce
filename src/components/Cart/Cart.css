@@ -4,15 +4,16 @@
 .cart {
     display: flex;
     align-items: center;
-    background-color: #2a462a;
+    background-color: #000000;
     color: white;
     border-radius: 5px;
+    border: 1px solid white;
     padding: 0 10px;
   }
   
   /* Styles for the cart button */
   .cart button {
-    background-color: #2a462a;
+    background-color: #000000;
     color: white;
     border: none;
     padding: 5px 5px;
@@ -27,6 +28,6 @@
   }
 
   .badge {
-    background-color: #121f12;
+    background-color: #2e2c2c;
   }
   
