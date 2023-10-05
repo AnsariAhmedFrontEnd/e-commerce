@@ -7,7 +7,7 @@ const CartProvider = (props) => {
   const [cartVisible, setCartVisible] = useState(false);
   const authCtx = useContext(AuthContext);
   const url = "https://e-commerce-93448-default-rtdb.firebaseio.com/";
-  console.log(cartArray)
+  console.log(cartArray);
 
   //Cart Visibility Function
 
@@ -24,7 +24,19 @@ const CartProvider = (props) => {
     const response = await fetch(`${url}/${cleanedEmail}.json`);
 
     const data = await response.json();
-    setCartArray((prevCartArray) => [...prevCartArray, data]);
+
+    if (data) {
+      const responseArray = Object.keys(data).map((key) => ({
+        _id: key,
+        ...data[key],
+      }));
+      setCartArray(responseArray);
+
+    }
+    else{
+      return;
+    }
+
   }, [authCtx.email]);
 
   //Add to Cart Function
@@ -52,7 +64,7 @@ const CartProvider = (props) => {
     const userEmail = authCtx.email;
     const cleanedEmail = userEmail.replace(/[.@]/g, "");
     try {
-      await fetch(`${url}/${cleanedEmail}/${id}`, {
+      await fetch(`${url}/${cleanedEmail}/${id}.json`, {
         method: "DELETE",
       });
 

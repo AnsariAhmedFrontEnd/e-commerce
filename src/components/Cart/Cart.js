@@ -8,9 +8,11 @@ const Cart = (props) => {
   const cartCtx = useContext(CartContext);
 
   const removeItemFromCartHandler = (itemId) => {
+    console.log(itemId)
     cartCtx.removeItem(itemId);
   };
 
+  
  
   const totalAmount = cartCtx.items.reduce((accumulator, currentItems) => {
     return (
@@ -43,7 +45,7 @@ const Cart = (props) => {
         <Button
           onClick={() => removeItemFromCartHandler(item._id)}
           variant="danger"
-          block
+          className="btn-block"
         >
           Remove
         </Button>
@@ -85,7 +87,7 @@ const Cart = (props) => {
       {cartItemsList}
       <Row className="align-items-center mt-4">
         <Col className="d-flex justify-content-end">
-          <h3 className="">Total ${totalAmount}</h3>
+          <h3 className="">Total ${totalAmount.toFixed(2)}</h3>
         </Col>
       </Row>
       <Button
